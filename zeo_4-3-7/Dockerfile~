@@ -1,0 +1,15 @@
+#FROM plone:4.3.18
+FROM plone:4.3.7
+
+
+#RUN pip install --upgrade pip
+#RUN pip install plone.app.jquerytools
+
+#USER root
+#RUN apt-get update
+#RUN apt-get install -yq sudo
+#USER plone
+
+COPY site.cfg /plone/instance/
+#RUN gosu plone buildout -c site.cfg
+RUN bin/buildout -c site.cfg
